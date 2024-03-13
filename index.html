@@ -42,11 +42,8 @@
     <div class="task-container">
       <ul v-if="todoList.length > 0">
         <li
-          v-for="(task, indice) in todoList"
-          
-          @click="changeStatus(indice)"
-        >
-          
+        v-for="(task, indice) in todoList"
+        @click="changeStatus(indice)">
           <span
           v-if="!task.done"
           >{{ task.activity }}</span>

@@ -51,16 +51,14 @@ createApp({
     },
 
     changeStatus(indice){
-      console.log(indice);
-      console.log(this.todoList[indice].done);
+      // Cambio lo stato della mia task
       this.todoList[indice].done = !this.todoList[indice].done;
-      console.log(this.todoList[indice].done);
     },
 
     eliminaTask(indice){
-      console.log(indice);
+      // Controllo se la mia task è stata fatta e la elimino
       if(this.todoList[indice].done) this.todoList.splice(indice, 1);
-      else console.log('NON POSSO');
+      else alert('Attenzione!! finisci prima la tua task!');
     },
   }
 }).mount('#app');
