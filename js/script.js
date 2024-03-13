@@ -26,13 +26,18 @@ createApp({
       errorMsg:'',
       isError: false,
       over: 'overline',
+      new:{
+        activity: '',
+        done: false
+      },
     }
   },
 
   methods:{
     addTask(){
       if(this.newTask.length >= 5){
-        this.todoList.unshift(this.newTask);
+        this.new.activity = this.newTask;
+        this.todoList.unshift(this.new);
         this.newTask = '';
         this.errorMsg = '';
         this.isError = false;
@@ -40,6 +45,8 @@ createApp({
         this.errorMsg = 'Attenzione! Il testo deve avere almeno 5 caratteri';
         this.isError = true;
       }
+
+      console.log(this.todoList);
     },
 
     eliminaTask(indice){
