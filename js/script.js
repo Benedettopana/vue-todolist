@@ -55,7 +55,7 @@ createApp({
         this.errorMsg = '';
         this.isError = false;
       }else{
-        this.errorMsg = 'Attenzione! Il testo deve avere almeno 5 caratteri';
+        this.errorMsg = 'Attenzione! Il testo deve avere almeno 3 caratteri';
         this.isError = true;
       }
 
