@@ -30,32 +30,33 @@
 
     <div class="new-task">
 
-      <input  placeholder="Nuovo task"type="text">
-      <button >Aggiungi</button>
-      <p class="error"></p>
+    <input
+        placeholder="Nuovo task" type="text"
+        v-model.trim="newTask"
+        @keyup.enter="addTask"
+      >
+      <button @click="addTask">Aggiungi</button>
+      <p class="error">{{ errorMsg }}</p>
     </div>
 
     <div class="task-container">
-      <ul>
-        <li>
-          <span>task....</span>
-          <i class="fa-solid fa-trash-can"></i>
-        </li>
-        <li>
-          <span>task....</span>
-          <i class="fa-solid fa-trash-can"></i>
-        </li>
-        <li>
-          <span>task....</span>
-          <i class="fa-solid fa-trash-can"></i>
-        </li>
-        <li>
-          <span>task....</span>
-          <i class="fa-solid fa-trash-can"></i>
-        </li>
+      <ul v-if="todoList.length > 0">
+        <li v-for="(task, indice) in todoList">
+          <span
+            v-if="!task.done"
+          >{{ task.activity }}</span>
 
+          <span
+            v-else
+            :style="{'text-decoration': 'line-through'}"
+          >{{ task.activity }}</span>
+          <i
+            class="fa-solid fa-trash-can"
+            @click="eliminaTask(indice)"
+          ></i>
+        </li>
       </ul>
-
+      <h3 v-else>Non ci sono task!</h3>
     </div>
 
 
