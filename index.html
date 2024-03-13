@@ -33,7 +33,7 @@
     <input
         placeholder="Nuovo task" type="text"
         v-model.trim="newTask"
-        @keyup.enter="addTask"
+        @keyup.enter="addTask()"
       >
       <button @click="addTask">Aggiungi</button>
       <p class="error">{{ errorMsg }}</p>

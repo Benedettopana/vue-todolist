@@ -28,7 +28,7 @@ createApp({
       over: 'overline',
       new:{
         activity: '',
-        done: false
+        done: null,
       },
       state: null,
     }
@@ -37,9 +37,21 @@ createApp({
   methods:{
     addTask(){
       if(this.newTask.length >= 4){
-        this.new.activity = this.newTask;
+        this.new = {
+          activity: this.newTask,
+          done: false,
+        }
+        // this.new.activity = this.newTask;
+        // this.new.done = false;
+        console.log(this.new.activity);
+        console.log(this.new);
         this.todoList.unshift(this.new);
         this.newTask = '';
+        
+        this.new = {
+          activity: '',
+          done: null,
+        }
         this.errorMsg = '';
         this.isError = false;
       }else{
@@ -59,6 +71,8 @@ createApp({
       // Controllo se la mia task è stata fatta e la elimino
       if(this.todoList[indice].done) this.todoList.splice(indice, 1);
       else alert('Attenzione!! finisci prima la tua task!');
+      
+      console.log(this.todoList);
     },
   }
 }).mount('#app');
