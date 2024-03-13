@@ -43,20 +43,27 @@
       <ul v-if="todoList.length > 0">
         <li
           v-for="(task, indice) in todoList"
-          @click="task.done = !task.done"
+          
+          @click="changeStatus(indice)"
         >
+          
           <span
-            v-if="!task.done"
+          v-if="!task.done"
           >{{ task.activity }}</span>
 
           <span
             v-else
             :style="{'text-decoration': 'line-through'}"
           >{{ task.activity }}</span>
-          <i
+          <span  @click.stop.prevent.self="changeStatus(indice)">
+            <i
             class="fa-solid fa-trash-can"
+
             @click="eliminaTask(indice)"
-          ></i>
+            ></i>
+          </span>
+
+          
         </li>
       </ul>
       <h3 v-else>Non ci sono task!</h3>

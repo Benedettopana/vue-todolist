@@ -30,6 +30,7 @@ createApp({
         activity: '',
         done: false
       },
+      state: null,
     }
   },
 
@@ -49,8 +50,17 @@ createApp({
       console.log(this.todoList);
     },
 
+    changeStatus(indice){
+      console.log(indice);
+      console.log(this.todoList[indice].done);
+      this.todoList[indice].done = !this.todoList[indice].done;
+      console.log(this.todoList[indice].done);
+    },
+
     eliminaTask(indice){
-      this.todoList.splice(indice, 1);
+      console.log(indice);
+      if(this.todoList[indice].done) this.todoList.splice(indice, 1);
+      else console.log('NON POSSO');
     },
   }
 }).mount('#app');
