@@ -35,7 +35,7 @@ createApp({
 
   methods:{
     addTask(){
-      if(this.newTask.length >= 5){
+      if(this.newTask.length >= 4){
         this.new.activity = this.newTask;
         this.todoList.unshift(this.new);
         this.newTask = '';
